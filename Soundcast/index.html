@@ -25,7 +25,7 @@
   </head>
   <body id="body">
     <div class="row">
-        <div class="col-l-4">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
             <div id="username"></div>
             <button class="btn btn-default" id="log-in">
@@ -33,17 +33,23 @@
             <button class="btn btn-default" id="log-out">
             Log Out</button>
              <button class="btn btn-default" id="sign-up"> Sign Up </button>
-            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+             <h1 id="soundcast" style="">S<span style="color:#f2b632">O</span>UNDCAST</h1>
+        <p id="subtitle">[music for your weather]</p>
         </div>
     </div>
 
-    <div class="row">
-    <div class="col-l-12">
-        <h1 id="soundcast" style="">S<span style="color:#f2b632">O</span>UNDCAST</h1>
-        <p id="subtitle">[music for your weather]</p>
-        <div class="divider"></div>
-    </div>
-</div>
+
+ <!--    <div class="row">
+ <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+     <h1 id="soundcast" style="">S<span style="color:#f2b632">O</span>UNDCAST</h1>
+     <p id="subtitle">[music for your weather]</p>
+     <div class="divider"></div>
+ </div>
+ </div> -->
 
     <div class="container">
 
@@ -58,7 +64,7 @@
 
         <div class="user-response">
             <form id="searchForm">
-                <label for="search">Enter a Location:</label>
+                <label id="enterLocation" for="search">Enter a Location:</label>
                 <input type="text" class="form-control" id="location">
                 <br>
 
@@ -72,7 +78,9 @@
                 <div class="code"></div>
                 <div id="geolocation"></div>
             </form>
+             <a href="about.html" target="_blank"style="color:#252839">Meet our team!</a>
         </div>
+      
 
 
         <div class="modal fade" tabindex="-1" role="dialog" id ="signup-modal">
