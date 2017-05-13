@@ -47,7 +47,7 @@ function getWeatherWithGeo() {
           var lat = response.location.lat;
           var lon = response.location.lng;
 
-          var weatherLLQueryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + WeatherAPIKey;
+          var weatherLLQueryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + WeatherAPIKey;
           $.ajax({
               url: weatherLLQueryURL,
               method: "GET"
