@@ -159,7 +159,7 @@ $("#login-user").on("click", function(event) {
 	firebase.auth().signInWithEmailAndPassword(email, pw)
   .then(function(user) {
 		var userId = firebase.auth().currentUser.uid;
-    $('#username').html('Hello! ' + userId);
+    $('#username').html('Hello!  ' + userId);
     $('#login-modal').modal("hide");
 	})
   .catch(function(error) {
@@ -326,7 +326,7 @@ function showWidget(weather, index) {
     var contBtn = $('<button>');
     contBtn.addClass('btn btn-default');
     contBtn.attr('id', 'cont-btn');
-    contBtn.html('Continue Listening');
+    contBtn.html('Resume');
     $('#cont-display').html(contBtn);
 
     $('#skip-btn').click(function(event) {
@@ -350,13 +350,13 @@ function showWidget(weather, index) {
 function weatherToTag(weatherCode) {
   console.log(weatherCode);
 		if (weatherCode >= 200 && weatherCode <= 599) {
-      $('#body').css({'background-image': 'url(assets/images/rainBlur.png)', 'background-size': '100%', 'background-repeat': "no-repeat"});
+      $('#body').css({'background-image': 'url(assets/images/rainBlur.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
 			return ['/discover/downtempo/', '/discover/chillout/', '/discover/ambient/'];
 		} else if (weatherCode >= 600 && weatherCode <= 622) {
-      $('#body').css({'background-image': 'url(assets/images/snowBlur.png)', 'background-size': '100%', 'background-repeat': "no-repeat"});
+      $('#body').css({'background-image': 'url(assets/images/snowBlur.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
 			return ['/discover/jazz/', '/discover/minimal/'];
 		} else {
-      $('#body').css({'background-image': 'url(assets/images/sunBlurrier.png)', 'background-size': '100%', 'background-repeat': "no-repeat"});
+      $('#body').css({'background-image': 'url(assets/images/sunBlurrier.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
 			return ['/discover/beats', '/discover/rap', '/discover/techno/', '/discover/electronica/'];
 		}
 };

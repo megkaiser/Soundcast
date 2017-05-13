@@ -5,11 +5,94 @@ p {
 	letter-spacing: 5px;
 	margin-top: 0;
 
+
+}
+#subtitle {
+	margin-left: 90%;	
+}
+
+#cont-display {
+	width: 120px;
 }
 
 .about {
 	color: #252839;
 }
+
+.btn-default {
+	width: 100px;
+	height: 40px;
+
+}
+
+#searchForm {
+	margin-left: 50%;
+	margin-bottom: 10%;
+}
+
+#get-location {
+	opacity: 0.8;
+	width: 15%;
+	background-color: #252839;
+	color:#f2b632
+	
+}
+
+#input-location {
+	opacity: 0.8;
+	background-color: #252839;
+	color:#f2b632
+	
+}
+
+#log-out{
+	opacity: 0.8;
+	background-color: #252839;
+	color:#f2b632
+	
+	
+
+}
+
+#log-in {
+	opacity: 0.8;
+	margin-left: -35%;
+	background-color: #252839;
+	color:#f2b632
+
+}
+
+#skip-btn{
+	opacity: 0.8;
+	background-color: #252839;
+	color:#f2b632
+}
+
+#cont-btn {
+	opacity: 0.8;
+	background-color: #252839;
+	color:#f2b632
+
+}
+
+#sign-up {
+opacity: 0.8;
+margin-right: 100px;
+background-color: #252839;
+color:#f2b632;
+	
+	
+}
+
+#username {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	margin-left: -45%;
+	margin-bottom: 1%;
+
+}
+
+
 
 #aboutBody {
 	background-image: url(../images/sunset.png);
@@ -31,13 +114,11 @@ p {
 	width: 40%;
 }
 
-#sign-up{
-	color: #252839;
-}
 
 #soundcast {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 50px;
+	font-size: 60px;
+	margin-left: 75%;
 	margin-top: 1%;
 	color: #252839;
 	margin-bottom: 5px;
@@ -62,11 +143,6 @@ p {
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
-#sign-up{
-	margin-left: -90%;
-	margin-top: -5%;
-}
-
 .formLabel {
 	color: white;
 }
@@ -80,20 +156,24 @@ p {
 	color: #fff;
 }
 
-#logout-user, #login-user, #submit-new-user, #input-location {
+/* #logout-user, #login-user, #submit-new-user, #input-location {
 	background-color: #252839;
 	height:20px;
 	width:120px;
 	padding-bottom:3%;
 	color: #f2b632 ;
 	opacity: .7;
-}
+} */
 
 body {
 	background-color: lightGrey;
 background-image: url(../images/sunset.png);
 background-size: cover;
 background-repeat: no-repeat;
+}
+
+.panel-default {
+	background-image: url(../images/sunset.png);
 }
 
 .waves-effect.waves-blue{
