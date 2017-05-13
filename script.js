@@ -2,7 +2,7 @@
 var config = {
   apiKey: "AIzaSyBNrMAXF5NX4lwRpr4XKPqpja-1PG0xaTM",
   authDomain: "soundcast-a7e68.firebaseapp.com",
-  databaseURL: "https://soundcast-a7e68.firebaseio.com",
+  databaseURL: "http://soundcast-a7e68.firebaseio.com",
   projectId: "soundcast-a7e68",
   storageBucket: "soundcast-a7e68.appspot.com",
   messagingSenderId: "164674645896"
@@ -25,7 +25,7 @@ var GeolocationAPIKey = "AIzaSyA5W3-HXFqPGO2zu2ZqS54zEl6YOkwQFtM";
 
 //Function to run Google Geolocation API
 function getGeoLocationGoogle() {
-	var googleQueryURL = "https://www.googleapis.com/geolocation/v1/geolocate?key=" + GeolocationAPIKey;
+	var googleQueryURL = "http://www.googleapis.com/geolocation/v1/geolocate?key=" + GeolocationAPIKey;
     return new Promise(function(resolve, reject) {
         $.ajax({
         	method: "POST",
@@ -47,7 +47,7 @@ function getWeatherWithGeo() {
           var lat = response.location.lat;
           var lon = response.location.lng;
 
-          var weatherLLQueryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + WeatherAPIKey;
+          var weatherLLQueryURL = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=" + WeatherAPIKey;
           $.ajax({
               url: weatherLLQueryURL,
               method: "GET"
@@ -70,7 +70,7 @@ function getWeatherWithUserInput() {
 
 	var location = $("#location").val().trim();
 
-	var weatherCSQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "=&appid=" + WeatherAPIKey;
+	var weatherCSQueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "=&appid=" + WeatherAPIKey;
 
 
 	$.ajax({
@@ -248,7 +248,7 @@ function skipToPrevPos() {
 
       if (prevURL != null) {
         $('iframe').attr('data-URL', prevURL);
-        $('iframe').attr('src', 'https://www.mixcloud.com/widget/iframe/?feed=' + prevURL + '&hide_cover=1&mini=1&light=1&autoplay=1');
+        $('iframe').attr('src', 'http://www.mixcloud.com/widget/iframe/?feed=' + prevURL + '&hide_cover=1&mini=1&light=1&autoplay=1');
         //TODO I know this is bad, but I do intend on fixing this later
         setTimeout(function() {
           widget.seek(prevPos);
@@ -305,11 +305,11 @@ function getDuration(date1, date2) {
 
 // Saving these functions for future use but user doesn't need their own unique access token
 function getOauth() {
-	location.href ="https://www.mixcloud.com/oauth/authorize?client_id=yf52JKSHVGHYVksWSM&redirect_uri=http://localhost:3000";
+	location.href ="http://www.mixcloud.com/oauth/authorize?client_id=yf52JKSHVGHYVksWSM&redirect_uri=http://localhost:3000";
 }
 
 function getAccessToken() {
-	location.href='https://www.mixcloud.com/oauth/access_token?client_id=yf52JKSHVGHYVksWSM&redirect_uri=http://localhost:3000&client_secret=KUduqYkAPWqCykfcmQsZYTfk3pR4q89x&code=e8ZrjZXXag'
+	location.href='http://www.mixcloud.com/oauth/access_token?client_id=yf52JKSHVGHYVksWSM&redirect_uri=http://localhost:3000&client_secret=KUduqYkAPWqCykfcmQsZYTfk3pR4q89x&code=e8ZrjZXXag'
 }
 
 $(window).bind('beforeunload', function(){
@@ -321,7 +321,7 @@ function showWidget(weather, index) {
 	var access_token = 'E3MjPt6NJSQZ22S3pSTwgEvY7wBWeA5M';
 
 	$.ajax({
-		url: 'https://api.mixcloud.com/popular/hot/?access_token=' + access_token,
+		url: 'http://api.mixcloud.com/popular/hot/?access_token=' + access_token,
 		method: 'GET',
 		dataType: 'json'
 	}).done(function(response) {
@@ -333,7 +333,7 @@ function showWidget(weather, index) {
     console.log(mixURLs);
 
 		// Display mix
-		$('#my-widget-iframe').attr('src', 'https://www.mixcloud.com/widget/iframe/?feed=' + mixURLs[index] + '&hide_cover=1&mini=1&light=1&autoplay=1');
+		$('#my-widget-iframe').attr('src', 'http://www.mixcloud.com/widget/iframe/?feed=' + mixURLs[index] + '&hide_cover=1&mini=1&light=1&autoplay=1');
 		$('#my-widget-iframe').attr('data-URL', mixURLs[index]);
 
     var skipBtn = $('<button>');
