@@ -1,0 +1,146 @@
+p {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 20px;
+	color: #252839;
+	letter-spacing: 5px;
+	margin-top: 0;
+
+}
+
+.about {
+	color: #252839;
+}
+
+#aboutBody {
+	background-image: url(../images/sunset.png);
+	background-position: top;
+	background-size: 100% 100%;
+}
+
+#weatherInfo{
+	font-family: 'Source Sans Pro', sans-serif;
+	color: #fff;
+	font-size: 20px;
+	margin-right: 0;
+	margin-top: 0;
+	
+}
+
+.bioPic {
+	height: 20%;
+	width: 40%;
+}
+
+#sign-up{
+	color: #252839;
+}
+
+#soundcast {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 50px;
+	margin-top: 1%;
+	color: #252839;
+	margin-bottom: 5px;
+	letter-spacing: 10px;
+	width: auto;
+
+}
+
+#o {
+	float: left;
+}
+
+.skip {
+	margin-top: 10%;
+	margin-left: 1%;
+	background-color: #f2b632 ;
+/* 	background-color: #252839; */
+	/* background-image: url(dusk.jpg);
+	background-position: 50% 45%; */
+	opacity: .8;
+	float: left;
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+#sign-up{
+	margin-left: -90%;
+	margin-top: -5%;
+}
+
+.formLabel {
+	color: white;
+}
+
+.form-control {
+	color: #fff;
+}
+
+.user-response{
+	margin-left: -99%;
+	color: #fff;
+}
+
+#logout-user, #login-user, #submit-new-user, #input-location {
+	background-color: #252839;
+	height:20px;
+	width:120px;
+	padding-bottom:3%;
+	color: #f2b632 ;
+	opacity: .7;
+}
+
+body {
+	background-color: lightGrey;
+background-image: url(../images/sunset.png);
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+.waves-effect.waves-blue{
+	color: ;
+	background-color: #f2b632;
+}
+
+.divider {
+	color: #252839;
+	background-color: #f2b632 ;
+}
+
+#player {
+	float: left;
+	margin-top: 7%;
+}
+
+.card {
+	float: left;
+	width: 150%;
+	margin-left: -15%;
+	background-color: #252839;
+	/* background-image: url(dusk.jpg);
+	background-position: 50% 45%; */
+	opacity: .7;
+}
+
+.colFirst {
+
+}
+
+#sun {
+	background-image: url(../images/sunBlur.png);
+	background-size: cover;
+	background-position: center;
+}
+
+#snow {
+	background-image: url(../images/snowBlur.png);
+	background-size: cover;
+	background-position: center;
+}
+
+.colSecond {
+
+}
+
+.rowOne {
+	width: 100%;
+}
