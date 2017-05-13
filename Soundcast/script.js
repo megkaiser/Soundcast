@@ -350,11 +350,13 @@ function showWidget(weather, index) {
 function weatherToTag(weatherCode) {
   console.log(weatherCode);
 		if (weatherCode >= 200 && weatherCode <= 599) {
-      console.log("hello");
+      $('#body').css({'background-image': 'url(assets/images/rainBlur.png)', 'background-size': '100%', 'background-repeat': "no-repeat"});
 			return ['/discover/downtempo/', '/discover/chillout/', '/discover/ambient/'];
 		} else if (weatherCode >= 600 && weatherCode <= 622) {
+      $('#body').css({'background-image': 'url(assets/images/snowBlur.png)', 'background-size': '100%', 'background-repeat': "no-repeat"});
 			return ['/discover/jazz/', '/discover/minimal/'];
 		} else {
+      $('#body').css({'background-image': 'url(assets/images/sunBlurrier.png)', 'background-size': '100%', 'background-repeat': "no-repeat"});
 			return ['/discover/beats', '/discover/rap', '/discover/techno/', '/discover/electronica/'];
 		}
 };
