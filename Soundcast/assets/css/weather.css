@@ -72,16 +72,33 @@ p {
 	opacity: 0.8;
 	background-color: #252839;
 	color:#f2b632
+}
 
+label {
+	color: #252839;
+}
+
+h5 {
+color: #252839;	
+}
+
+#login-user {
+	opacity: 0.8;
+	background-color: #252839;
+	color:#f2b632
+}
+
+#submit-new-user {
+	opacity: 0.8;
+	background-color: #252839;
+	color:#f2b632
 }
 
 #sign-up {
 opacity: 0.8;
 margin-right: 100px;
 background-color: #252839;
-color:#f2b632;
-	
-	
+color:#f2b632;	
 }
 
 #username {
