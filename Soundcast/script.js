@@ -12,7 +12,6 @@ firebase.initializeApp(config);
 // Initialize variables
 var weatherCode;
 var index = 0;
-var mixURLs = [];
 var date1;
 var date2;
 var widget = Mixcloud.PlayerWidget(document.getElementById('my-widget-iframe'));
@@ -93,7 +92,8 @@ $("#input-location").click(function(event) {
   event.preventDefault();
   getWeatherWithUserInput()
 	.then(function(response) {
-		showWidget(response, index);
+    weatherCode = response;
+		showWidget(weatherCode, index);
 	})
 });
 
@@ -102,7 +102,8 @@ $('#get-location').click(function(event) {
 
   getWeatherWithGeo()
   .then(function(response) {
-    showWidget(response, index)
+    weatherCode = response;
+    showWidget(weatherCode, index)
   })
 
 })
@@ -159,7 +160,11 @@ $("#login-user").on("click", function(event) {
 	firebase.auth().signInWithEmailAndPassword(email, pw)
   .then(function(user) {
 		var userId = firebase.auth().currentUser.uid;
-    $('#username').html('Hello!  ' + userId);
+    db.ref('/users/' + userId).once("value").then(function(snapshot) {
+      var snapObj = snapshot.val();
+      var userEmail = snapObj.email;
+      $('#username').html('Hello ' + userEmail + '!')
+    });
     $('#login-modal').modal("hide");
 	})
   .catch(function(error) {
@@ -179,6 +184,15 @@ $("#log-out").click(function() {
 	var mixURL = $('#my-widget-iframe').attr('data-url');
 
   if (mixURL) {
+
+    $('#skip-display').empty();
+    $('#cont-display').empty();
+    $('.city').empty();
+    $('.wind').empty();
+    $('.humidity').empty();
+    $('.temp').empty();
+    $('iframe').attr('src', '');
+
     date2 = getTimes();
   	var duration = getDuration(date1, date2);
     var userId = firebase.auth().currentUser.uid;
@@ -208,7 +222,11 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
     var userId = firebase.auth().currentUser.uid;
-    $('#username').html('Hello!' + userId);
+    db.ref('/users/' + userId).once("value").then(function(snapshot) {
+      var snapObj = snapshot.val();
+      var userEmail = snapObj.email;
+      $('#username').html('Hello ' + userEmail + '!')
+    });
     date1 = getTimes();
   } else {
     // No user is signed in.
@@ -311,7 +329,8 @@ function showWidget(weather, index) {
 		// Gather music tags for the corresponding weather condition
 		var weatherTags = weatherToTag(weather);
 		// Eliminate any duplicate URLs in the array
-		mixURLs = unique(findMusicTag(response, weatherTags));
+		var mixURLs = unique(findMusicTag(response, weatherTags));
+    console.log(mixURLs);
 
 		// Display mix
 		$('#my-widget-iframe').attr('src', 'https://www.mixcloud.com/widget/iframe/?feed=' + mixURLs[index] + '&hide_cover=1&mini=1&light=1&autoplay=1');
@@ -326,12 +345,15 @@ function showWidget(weather, index) {
     var contBtn = $('<button>');
     contBtn.addClass('btn btn-default');
     contBtn.attr('id', 'cont-btn');
-    contBtn.html('Resume');
+    contBtn.html('Continue Listening');
     $('#cont-display').html(contBtn);
 
     $('#skip-btn').click(function(event) {
       event.preventDefault();
       widget.pause().then(function() {
+
+    		var weatherTags = weatherToTag(weatherCode);
+    		var mixURLs = unique(findMusicTag(response, weatherTags));
         skipMix(mixURLs);
       });
     })
@@ -348,12 +370,11 @@ function showWidget(weather, index) {
 
 // Return music tags for rainy, snowy, and other
 function weatherToTag(weatherCode) {
-  console.log(weatherCode);
 		if (weatherCode >= 200 && weatherCode <= 599) {
       $('#body').css({'background-image': 'url(assets/images/rainBlur.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
 			return ['/discover/downtempo/', '/discover/chillout/', '/discover/ambient/'];
 		} else if (weatherCode >= 600 && weatherCode <= 622) {
-      $('#body').css({'background-image': 'url(assets/images/snowBlur.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
+       $('#body').css({'background-image': 'url(assets/images/snowBlur.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
 			return ['/discover/jazz/', '/discover/minimal/'];
 		} else {
       $('#body').css({'background-image': 'url(assets/images/sunBlurrier.png)', 'background-size': 'cover', 'background-repeat': "no-repeat"});
@@ -364,6 +385,7 @@ function weatherToTag(weatherCode) {
 // Go through mixcloud's current popular mixes and find tags that match
 function findMusicTag(response, tagsToFind) {
 	var data = response.data;
+  var mixURLs = [];
 
 	for (i=0; i<data.length; i++) {
 		for (j=0; j<data[i].tags.length; j++) {
