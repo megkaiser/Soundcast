@@ -345,7 +345,7 @@ function showWidget(weather, index) {
     var contBtn = $('<button>');
     contBtn.addClass('btn btn-default');
     contBtn.attr('id', 'cont-btn');
-    contBtn.html('Continue Listening');
+    contBtn.html('Resume');
     $('#cont-display').html(contBtn);
 
     $('#skip-btn').click(function(event) {
