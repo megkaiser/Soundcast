@@ -70,7 +70,7 @@ function getWeatherWithUserInput() {
 
 	var location = $("#location").val().trim();
 
-	var weatherCSQueryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "=&appid=" + WeatherAPIKey;
+	var weatherCSQueryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "=&appid=" + WeatherAPIKey;
 
 
 	$.ajax({
